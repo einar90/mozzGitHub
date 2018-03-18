@@ -24,4 +24,4 @@ hs_err_pid*
 # MoreToIgnore
 <inserted by Mozzle>
 *.xml
-&.iml
+*.iml
