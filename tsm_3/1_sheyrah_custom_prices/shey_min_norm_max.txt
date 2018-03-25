@@ -1,0 +1,82 @@
+Legion Custom Prices: You must have at least one recipe that uses this material for it to show up in the materials tab.
+
+Blood Of Sargeras Custom Price:
+
+max(dbmarket(i:124118) * 10, dbmarket(i:124119) * 10, dbmarket(i:124120) * 10, dbmarket(i:124121) * 10, dbmarket(i:124107) * 10, dbmarket(i:124108) * 10, dbmarket(i:124109) * 10, dbmarket(i:124110) * 10, dbmarket(i:124111) * 10, dbmarket(i:124112)* 10, dbmarket(i:124101) * 10, dbmarket(i:124102) * 10, dbmarket(i:124103) * 10, dbmarket(i:124104) * 10, dbmarket(i:124105) * 3, dbmarket(i:123918) * 10, dbmarket(i:123919) * 5, dbmarket(i:124113) * 10, dbmarket(i:124115) * 10, dbmarket(i:124438) * 20, dbmarket(i:124121) * 20, dbmarket(i:124437) * 10, dbmarket(i:124440) * 10, dbmarket(i:124441) * 3)
+
+
+Primal Sargerite Custom Price:
+
+max(dbmarket(i:151565) * 10, dbmarket(i:151564) * 10, dbmarket(i:151566) * 10, dbmarket(i:151567) * 10, dbmarket(i:151579) / 10, dbmarket(i:151722) / 10, dbmarket(i:151720) / 10, dbmarket(i:151718) / 10, dbmarket(i:151721) / 10, dbmarket(i:151719) / 10)
+
+
+Material Price for Roseaste Pigments and Sallow Pigments: This one is from Bilis, see link for details.
+
+DBMarket * (matPrice(i:124102) / (0.45 * DBMarket(i:129032) + 0.1 * DBMarket(i:129034)))
+
+https://www.reddit.com/r/woweconomy/comments/71wqu5/tsminscription_a_way_to_value_your_pigments/
+
+
+Primal Spirit Custom Price:
+
+avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129)))*5
+
+What this does is, it will look at the average price you pay for current expansion herbs to determine a price for your primal spirit. Because primal spirits are soulbound, they can't exist on the AH, so tsm can't determine a value for it. Since trading in 5 herbs will give you a primal spirit, you work around this problem this way. If you just installed my profile, you will have no accounting data, so  you will need to go buy at least 1 of every current expansion herb and collect those bought herbs from your mailbox for tsm to register your average buy price of herbs. For those of you that don't go buy 1 of each current expansion herb, I have a backup in the string to just reference the market value of herbs on your server. I had to put this back up in there because too many people were getting lost with tsm not showing a price for primal spirits because they didn't know they had to buy 1 of each current expansion herb. Now in  your profession window you will see a price/profit for all those items that are made with primal spirits, ie upgrade tokens and epic armor/weapons.
+
+
+
+Temporal Crystal Fix:
+
+Next, type in "Temporal Crystal" without the quotations in the same box you had typed "Primal Spirts". The default setting is this, min(dbmarket, crafting, vendorbuy, convert(dbmarket)), you want to delete the crafting part, because the only way you can craft a temporal crystal is the daily CD, so it appears a temporal crystal is worth the same as a luminous shard, which is not the case, so you have to take the crafting part out or you will lose a lot of gold. make it look like this:
+
+min(dbmarket, vendorbuy, convert(dbmarket))
+
+
+"minprice"
+
+max(first(min(DBHistorical, DBRegionMarketAvg, DBRegionHistorical), min(DBGlobalMarketAvg, DBGlobalHistorical)), VendorSell)
+
+
+
+"darkmooncard"
+
+(first((avgbuy(item:43123)*5), crafting(item:43123)*5, dbmarket(item:43123)*5) + first(vendorbuy(item:39354), dbmarket(item:39354))*8)
+
+
+"warpaints"
+
+avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129))))*2.5 + ((avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129)))*5)
+
+
+"darkmooncardofdestruction"
+
+first((avgbuy(item:61981)*10), crafting(item:61981)*10, dbmarket(item:61981)*10) + first(avgbuy(item:52329)*30, crafting(item:52329)*30, dbmarket(item:52329)*30) + first(vendorbuy(item:39354), dbmarket(item:39354))
+
+
+"darkmooncardofdraenor"
+
+avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127), dbmarket(item:109127)),first(avgbuy(item:109128), dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129)))*2.5) + (avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127), dbmarket(item:109127)),first(avgbuy(item:109128), dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129)))*5)*10  + first(vendorbuy(item:39354), dbmarket(item:39354)
+
+
+"darkmooncardofmists"
+
+first((avgbuy(item:79255)*10), crafting(item:79255)*10, dbmarket(item:79255)*10) + first(avgbuy(item:79254)*3, crafting(item:79254)*3, dbmarket(item:79254)*3) + first(vendorbuy(item:39354)*2, dbmarket(item:39354)*2)
+
+
+"darkmooncardofthenorth"
+
+first((avgbuy(item:43127)*6), crafting(item:43127)*6, dbmarket(item:43127)*6) + first(avgbuy(item:35625), crafting(item:35625), dbmarket(item:35625)) + first(vendorbuy(item:39354), dbmarket(item:39354))
+
+"greaterdarkmooncard"
+
+(first((avgbuy(item:43125)*3), crafting(item:43125)*3, dbmarket(item:43125)*3) + first(avgbuy(item:21886), crafting(item:21886), dbmarket(item:21886)) + first(vendorbuy(item:39354), dbmarket(item:39354))*8)
+
+
+"scribecards"
+
+(avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129))))*2.5 + ((avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129)))*5)*10)
+
+
+"scribetrinkets"
+
+((avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129))))*2.5 + ((avg(first(avgbuy(item:109124), dbmarket(item:109124)),first(avgbuy(item:109125), dbmarket(item:109125)),first(avgbuy(item:109126), dbmarket(item:109126)),first(avgbuy(item:109127),dbmarket(item:109127)),first(avgbuy(item:109128),dbmarket(item:109128)),first(avgbuy(item:109129), dbmarket(item:109129)))*5)*10)*8)
