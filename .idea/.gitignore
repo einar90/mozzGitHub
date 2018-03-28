@@ -25,3 +25,7 @@ hs_err_pid*
 <inserted by Mozzle>
 *.xml
 *.iml
+_site
+.sass-cache
+Gemfile.lock
+*.gem
