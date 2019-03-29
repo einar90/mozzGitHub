@@ -2,7 +2,7 @@
 
 The purpose of this section is a list of all the various TSM Groups & operations used.
 
-This complete list comes from the following folks: Sheyrah (Not you Xionik! 4Head), Torack, Bilis, and myself using WOW & TSM Group creator.
+This complete list comes from the following folks: Sheyrah (Not you Xionik! 4Head), Torack, Bilis, and myself using WOW Head & TSM Group creator.
 
 ## Future Plans
 **Website:** https://gunnydelight.github.io/mozzGitHub/
