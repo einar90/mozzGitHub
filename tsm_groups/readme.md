@@ -1,6 +1,8 @@
 # Mozzletoff's Trade Skill Master 4 TSM Groups + Operations
 
-The purpose of this section is a list of all the various TSM Groups & operations used.
+##StillUnderConstruction! There are groups | safe-set operations missing so be cautious. I working on getting it where it needs to be and SAFE for the community.
+
+The purpose of this section is a list of all the various TSM Groups & operations used I myself am using.
 
 This complete list comes from the following folks: Sheyrah (Not you Xionik! 4Head), Torack, Bilis, and myself using WOW Head & TSM Group creator.
 
